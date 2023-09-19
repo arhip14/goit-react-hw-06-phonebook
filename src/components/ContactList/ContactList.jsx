@@ -8,7 +8,7 @@ import {
   ContactName,
   ContactNumber,
   DeleteButton,
-} from './ContactList.styles'; // Імпортуємо стилі
+} from './ContactList.styles';
 
 const ContactList = () => {
   const contacts = useSelector((state) => state.contacts.contacts);

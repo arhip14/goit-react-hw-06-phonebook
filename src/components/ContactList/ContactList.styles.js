@@ -22,6 +22,9 @@ export const ContactListItem = styled.li`
     background-color: #f0f0f0;
     transform: translateY(-3px);
   }
+  
+  /* Increase the width */
+  width: 100%;
 `;
 
 export const ContactInfo = styled.div`
@@ -49,7 +52,9 @@ export const DeleteButton = styled.button`
   padding: 7px 12px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
+  /* Increase the width */
+  min-width: 100px;
+  
   &:hover {
     background-color: #c0392b;
   }

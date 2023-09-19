@@ -2,11 +2,19 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
-import Filter from './Filter/Filter';
-import { AppContainer, Title, FilterWrapper } from './AppStyled';
+import {
+  AppContainer,
+  Title,
+  FilterWrapper,
+  FilterInput,
+  ContactListContainer,
+  NoContactsMessage,
+  ContactListHeader
+} from './AppStyled';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { addContact } from './Redux/contactsSlice';
+import { setFilter } from './Redux/actions/contactsActions';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -26,14 +34,25 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <h1>Phonebook</h1>
+    <AppContainer>
+      <Title>Phonebook</Title>
       <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
+      <ContactListContainer>
+        <ContactListHeader>Contacts</ContactListHeader>
+        <FilterWrapper>
+          <label>Filter contacts by name:</label>
+          <FilterInput
+            type="text"
+            value={filter}
+            onChange={(e) => dispatch(setFilter(e.target.value))}
+            placeholder="Enter name to filter"
+          />
+        </FilterWrapper>
+        <ContactList />
+        {contacts.length === 0 && <NoContactsMessage>No contacts to display.</NoContactsMessage>}
+      </ContactListContainer>
       <ToastContainer autoClose={3000} position={toast.POSITION.TOP_CENTER} />
-    </div>
+    </AppContainer>
   );
 };
 
