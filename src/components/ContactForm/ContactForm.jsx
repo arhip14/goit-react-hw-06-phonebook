@@ -1,9 +1,13 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addContact } from '../Redux/actions/contactsActions';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { FormContainer } from './ContactFormStyled';
 
-const ContactForm = ({ addContact }) => {
+const ContactForm = () => {
+  const dispatch = useDispatch();
+
   const validationSchema = Yup.object().shape({
     name: Yup.string()
       .matches(/^[a-zA-Zа-яА-Я\s'-]*$/, 'Invalid name format')
@@ -22,7 +26,8 @@ const ContactForm = ({ addContact }) => {
   };
 
   const onSubmit = (values, { resetForm }) => {
-    addContact({ ...values, id: Math.random().toString() });
+    const newContact = { ...values, id: Math.random().toString() };
+    dispatch(addContact(newContact));
     resetForm();
   };
 

@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ContactForm from './ContactForm';
-import ContactList from './ContactList';
-import Filter from './Filter';
+import ContactForm from './ContactForm/ContactForm';
+import ContactList from './ContactList/ContactList';
+import Filter from './Filter/Filter';
 import { AppContainer, Title, FilterWrapper } from './AppStyled';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { addContact, deleteContact, setFilter } from './contactsSlice';
+// import { addContact, deleteContact, setFilter } from './contactsSlice';
 
 const App = () => {
   const dispatch = useDispatch();

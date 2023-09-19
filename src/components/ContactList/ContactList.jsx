@@ -1,5 +1,5 @@
 import React from "react";
-import { ContactListContainer } from "./ContactFormStyled";
+import { ContactListContainer } from "./ContactList.styles";
 
 const ContactList = ({ contacts, onDeleteContact }) => {
   return (
