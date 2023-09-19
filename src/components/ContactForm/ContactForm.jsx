@@ -41,16 +41,16 @@ const ContactForm = () => {
       >
         <Form>
           <div>
-            <label>Name:</label>
-            <Field type="text" name="name" />
-            <ErrorMessage name="name" component="div" />
+            <label className="your-label-class">Name:</label>
+            <Field type="text" name="name" className="your-input-class" />
+            <ErrorMessage name="name" component="div" className="your-error-class" />
           </div>
           <div>
-            <label>Number:</label>
-            <Field type="tel" name="number" />
-            <ErrorMessage name="number" component="div" />
+            <label className="your-label-class">Number:</label>
+            <Field type="tel" name="number" className="your-input-class" />
+            <ErrorMessage name="number" component="div" className="your-error-class" />
           </div>
-          <button type="submit">Add Contact</button>
+          <button type="submit" className="your-button-class">Add Contact</button>
         </Form>
       </Formik>
     </FormContainer>

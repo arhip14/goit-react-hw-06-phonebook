@@ -6,7 +6,7 @@ import Filter from './Filter/Filter';
 import { AppContainer, Title, FilterWrapper } from './AppStyled';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import { addContact, deleteContact, setFilter } from './contactsSlice';
+import { addContact } from './Redux/contactsSlice';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,41 +25,16 @@ const App = () => {
     }
   }, [dispatch]);
 
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
-
-  const handleAddContact = (newContact) => {
-    dispatch(addContact(newContact));
-    toast.success('Contact added');
-  };
-
-  const handleDeleteContact = (contactId) => {
-    dispatch(deleteContact(contactId));
-    toast.success('Contact deleted');
-  };
-
-  const handleFilterChange = (event) => {
-    dispatch(setFilter(event.target.value));
-  };
-
-  const filteredContacts = contacts.filter((contact) =>
-    contact.name && contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
-
   return (
-    <AppContainer>
-      <Title>Phonebook</Title>
-      <ContactForm addContact={handleAddContact} contacts={contacts} />
+    <div>
+      <h1>Phonebook</h1>
+      <ContactForm />
       <h2>Contacts</h2>
-      <FilterWrapper>
-        <Filter filter={filter} handleFilterChange={handleFilterChange} />
-      </FilterWrapper>
-      <ContactList contacts={filteredContacts} onDeleteContact={handleDeleteContact} />
-      <ToastContainer />
-    </AppContainer>
+      <Filter />
+      <ContactList />
+      <ToastContainer autoClose={3000} position={toast.POSITION.TOP_CENTER} />
+    </div>
   );
 };
 
 export default App;
-
