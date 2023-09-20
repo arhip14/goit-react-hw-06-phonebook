@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../Redux/actions/contactsActions';
+import { addContact } from '../../Redux/actions/contactsActions';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { FormContainer } from './ContactFormStyled';

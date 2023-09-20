@@ -13,8 +13,8 @@ import {
 } from './AppStyled';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { addContact } from './Redux/contactsSlice';
-import { setFilter } from './Redux/actions/contactsActions';
+import { addContact } from '../Redux/contactsSlice';
+import { setFilter } from '../Redux/actions/contactsActions';
 
 const App = () => {
   const dispatch = useDispatch();
